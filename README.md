@@ -129,11 +129,13 @@ Create a MySQL database and update the database configuration in the Django proj
 
 ### Run the Application
 
+
+
+```bash
 python model\train_model.py
 
 python manage.py runserver
 
-```bash
 
 ```
 
