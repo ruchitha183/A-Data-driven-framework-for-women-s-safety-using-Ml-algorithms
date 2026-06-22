@@ -1,42 +1,56 @@
-# Women Safety Prediction System Using Machine Learning
+# A Data-Driven Framework for Women Safety Using Machine Learning
 
 ## Project Overview
 
-The Women Safety Prediction System is a machine learning-based web application developed to analyze and predict crime trends against women using historical crime data. The system helps identify patterns in crime records and provides predictive insights that can support data-driven decision-making for women's safety initiatives.
+A Data-Driven Framework for Women Safety Using Machine Learning is a web-based application developed to analyze and predict crime trends against women using historical crime data. The project leverages machine learning algorithms to identify patterns in crime records and generate predictive insights that can support data-driven decision-making.
 
-The application is developed using Django for the web framework, MySQL for database management, and various machine learning algorithms for data analysis and prediction.
+The system combines machine learning techniques with a Django-based web application, providing an interactive platform for data analysis, prediction, and visualization.
+
+---
+
+## Objectives
+
+* Analyze historical crime data against women.
+* Identify patterns and trends in crime records.
+* Train and evaluate multiple machine learning models.
+* Predict crime trends using the best-performing model.
+* Provide an easy-to-use web interface for analysis and prediction.
 
 ---
 
 ## Features
 
 * User Registration and Authentication
-* Crime Data Analysis
-* State-wise Crime Prediction
-* Year-wise Crime Trend Analysis
+* Crime Data Analysis and Visualization
+* State-wise Crime Trend Analysis
+* Year-wise Crime Prediction
 * Machine Learning Model Training and Evaluation
-* Automatic Best Model Selection
+* Best Model Selection Based on Performance Metrics
 * Interactive Web Interface
-* Data Visualization and Reporting
+* MySQL Database Integration
+* Prediction Results and Reporting
 
 ---
 
 ## Technologies Used
+
+### Programming Language
+
+* Python
+
+### Web Framework
+
+* Django
+
+### Database
+
+* MySQL
 
 ### Frontend
 
 * HTML
 * CSS
 * JavaScript
-
-### Backend
-
-* Python
-* Django
-
-### Database
-
-* MySQL
 
 ### Machine Learning Libraries
 
@@ -47,9 +61,19 @@ The application is developed using Django for the web framework, MySQL for datab
 * Keras
 * Matplotlib
 
+### Development Tools
+
+* Anaconda Navigator
+* Jupyter Notebook
+* Visual Studio Code
+
 ---
 
-## Machine Learning Models Implemented
+## Machine Learning Models
+
+The project evaluates multiple machine learning algorithms to determine the most effective prediction model.
+
+Implemented Algorithms:
 
 * Logistic Regression
 * Decision Tree Classifier
@@ -57,30 +81,33 @@ The application is developed using Django for the web framework, MySQL for datab
 * Gradient Boosting Classifier
 * K-Nearest Neighbors (KNN)
 
-The system compares multiple algorithms and selects the best-performing model based on evaluation metrics.
+The best-performing model is selected based on evaluation metrics and used for prediction.
 
 ---
 
 ## Dataset
 
-The project utilizes historical crime data against women to train and evaluate machine learning models.
+The system utilizes historical crime data related to crimes against women. The dataset is preprocessed and analyzed to identify meaningful patterns and trends.
 
-The dataset is preprocessed, cleaned, and used for:
+The dataset is used for:
 
+* Data Cleaning and Preprocessing
+* Feature Engineering
 * Model Training
 * Model Testing
 * Crime Trend Prediction
-* Performance Evaluation
 
 ---
+
+
 
 ## Installation and Setup
 
 ### Clone the Repository
 
 ```bash
-git clone https://github.com/your-username/women-safety-prediction-system.git
-cd women-safety-prediction-system
+git clone https://github.com/your-username/your-repository-name.git
+cd your-repository-name
 ```
 
 ### Create Anaconda Environment
@@ -98,15 +125,19 @@ pip install -r requirements.txt
 
 ### Configure MySQL Database
 
-Create a MySQL database and update the database credentials in the Django project settings.
+Create a MySQL database and update the database configuration in the Django project settings file.
 
-### Run the Project
+### Run the Application
+
+python model\train_model.py
+
+python manage.py runserver
 
 ```bash
-python manage.py runserver
+
 ```
 
-Open:
+Open the application in your browser:
 
 ```text
 http://127.0.0.1:8000/
@@ -114,7 +145,7 @@ http://127.0.0.1:8000/
 
 ---
 
-## Project Screenshots
+## Screenshots
 
 ### Home Page
 
@@ -128,20 +159,23 @@ http://127.0.0.1:8000/
 
 (Add Screenshot Here)
 
-### Results Page
+### Analysis Results
 
 (Add Screenshot Here)
 
 ---
 
-## Future Enhancements
+## Performance Evaluation
 
-* Real-Time Crime Data Integration
-* Mobile Application Development
-* GPS-Based Safety Features
-* Emergency SOS Functionality
-* Advanced Deep Learning Models
-* Interactive Analytics Dashboard
+The machine learning models are evaluated using:
+
+* Accuracy
+* Precision
+* Recall
+* F1-Score
+* Confusion Matrix
+
+The system automatically selects the best-performing model based on evaluation results.
 
 ---
 
@@ -149,15 +183,36 @@ http://127.0.0.1:8000/
 
 Through this project, I gained practical experience in:
 
-* Machine Learning Model Development
-* Data Preprocessing and Analysis
+* Machine Learning and Predictive Analytics
+* Data Preprocessing and Feature Engineering
 * Django Web Development
 * Database Management using MySQL
 * Model Evaluation and Performance Analysis
-* End-to-End Project Deployment Workflow
+* End-to-End Application Development
+
+---
+
+## Future Enhancements
+
+* Real-Time Crime Data Integration
+* Advanced Deep Learning Models
+* Interactive Analytics Dashboard
+* Mobile Application Development
+* Geographic Crime Visualization
+* Emergency Alert and Safety Features
+
+---
+
+## Academic Information
+
+This project was developed as a Final Year Major Project for the Bachelor of Technology (B.Tech) degree. The project demonstrates the application of machine learning and web technologies for analyzing crime data and generating predictive insights related to women's safety.
 
 ---
 
 ## Author
 
-Developed as a Machine Learning and Web Development project to leverage data analytics and predictive modeling for women's safety.
+Ruchitha
+
+Bachelor of Technology (B.Tech)
+
+Machine Learning and Django-Based Women Safety Prediction System
