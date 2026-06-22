@@ -1,4 +1,4 @@
-# A Data-Driven Framework for Women's  Safety Using Machine Learning Algorithms
+# A Data-Driven Framework for Women's  Safety Using Machine Learning  Algorithms
 
 ## Project Overview
 
