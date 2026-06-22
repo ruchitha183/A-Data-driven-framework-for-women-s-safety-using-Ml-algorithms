@@ -1,0 +1,299 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>User Signup | Women Safety AI</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<script>
+
+function validate(formObj) {
+
+    if(formObj.t1.value.trim() == "") {
+        alert("Please enter username");
+        formObj.t1.focus();
+        return false;
+    }
+
+    if(formObj.t2.value.trim() == "") {
+        alert("Please enter password");
+        formObj.t2.focus();
+        return false;
+    }
+
+    let contact = formObj.t3.value.trim();
+    if(contact == "") {
+        alert("Please enter contact number");
+        formObj.t3.focus();
+        return false;
+    }
+    if(!/^\d{10,}$/.test(contact)) {
+        alert("Contact number must be at least 10 digits");
+        formObj.t3.focus();
+        return false;
+    }
+
+    let emailPattern = /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/;
+    if(formObj.t4.value.trim() == "") {
+        alert("Please enter email ID");
+        formObj.t4.focus();
+        return false;
+    }
+    if(!emailPattern.test(formObj.t4.value.trim())) {
+        alert("Enter a valid email address");
+        formObj.t4.focus();
+        return false;
+    }
+
+    if(formObj.t6.value.trim() != "" && !emailPattern.test(formObj.t6.value.trim())) {
+        alert("Enter a valid parent/guardian email address");
+        formObj.t6.focus();
+        return false;
+    }
+
+    if(formObj.t5.value.trim() == "") {
+        alert("Please enter address");
+        formObj.t5.focus();
+        return false;
+    }
+
+    return true;
+}
+
+/* ENTER KEY FIELD NAVIGATION */
+
+function moveNext(event,nextField){
+if(event.key === "Enter"){
+event.preventDefault();
+document.getElementById(nextField).focus();
+}
+}
+
+function submitForm(event){
+if(event.key === "Enter"){
+event.preventDefault();
+document.f1.submit();
+}
+}
+
+/* PASSWORD STRENGTH */
+
+function checkPasswordStrength(){
+
+let pass = document.getElementById("password").value;
+let strengthText = document.getElementById("strength");
+
+let strength = 0;
+
+if(pass.length >= 6) strength++;
+if(/[A-Z]/.test(pass)) strength++;
+if(/[0-9]/.test(pass)) strength++;
+if(/[^A-Za-z0-9]/.test(pass)) strength++;
+
+if(pass.length == 0){
+strengthText.innerHTML = "";
+}
+
+else if(strength <= 1){
+strengthText.innerHTML = "Weak Password";
+strengthText.style.color = "red";
+}
+
+else if(strength == 2 || strength == 3){
+strengthText.innerHTML = "Medium Password";
+strengthText.style.color = "orange";
+}
+
+else{
+strengthText.innerHTML = "Strong Password";
+strengthText.style.color = "green";
+}
+
+}
+
+/* SHOW / HIDE PASSWORD */
+
+function togglePassword(){
+
+let passField = document.getElementById("password");
+let toggleBtn = document.getElementById("togglePass");
+
+if(passField.type === "password"){
+passField.type = "text";
+toggleBtn.innerHTML = "🙈 Hide";
+}else{
+passField.type = "password";
+toggleBtn.innerHTML = "👁 Show";
+}
+
+}
+
+</script>
+
+<style>
+
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Poppins',sans-serif;}
+
+body{
+height:100vh;
+background:#ffb6c1;
+display:flex;
+justify-content:center;
+align-items:center;
+}
+
+.signup-card{
+width:420px;
+background:white;
+padding:40px;
+border-radius:12px;
+box-shadow:0 10px 25px rgba(0,0,0,0.2);
+text-align:center;
+}
+
+.signup-card h2{
+margin-bottom:20px;
+color:#ff3d7f;
+}
+
+.input-group{
+margin-bottom:16px;
+text-align:left;
+}
+
+.input-group label{
+font-size:14px;
+}
+
+.input-group input{
+width:100%;
+padding:10px;
+margin-top:5px;
+border-radius:6px;
+border:1px solid #ccc;
+outline:none;
+}
+
+.password-box{
+position:relative;
+}
+
+.toggle{
+position:absolute;
+right:10px;
+top:50%;
+transform:translateY(-50%);
+cursor:pointer;
+font-size:13px;
+color:#555;
+}
+
+.strength{
+font-size:13px;
+margin-top:5px;
+}
+
+.signup-btn{
+width:100%;
+padding:12px;
+background:#ff3d7f;
+border:none;
+color:white;
+font-size:16px;
+border-radius:6px;
+cursor:pointer;
+}
+
+.signup-btn:hover{
+background:#e0316c;
+}
+
+.message{
+color:blue;
+margin-bottom:10px;
+}
+
+.login{
+margin-top:15px;
+font-size:14px;
+}
+
+.login a{
+color:#ff3d7f;
+text-decoration:none;
+font-weight:500;
+}
+
+@media(max-width:500px){
+.signup-card{width:90%;}
+}
+
+</style>
+</head>
+
+<body>
+
+<form name="f1" method="post" action="{% url 'RegisterAction' %}" onsubmit="return validate(this);">
+
+{% csrf_token %}
+
+<div class="signup-card">
+
+<h2>Create Account</h2>
+
+<div class="message">{{ data|safe }}</div>
+
+<div class="input-group">
+<label>Username</label>
+<input type="text" id="username" name="t1" placeholder="Enter username" autofocus onkeydown="moveNext(event,'password')">
+</div>
+
+<div class="input-group">
+<label>Password</label>
+
+<div class="password-box">
+<input type="password" id="password" name="t2" placeholder="Enter password"
+onkeyup="checkPasswordStrength()" onkeydown="moveNext(event,'contact')">
+
+<span class="toggle" id="togglePass" onclick="togglePassword()">👁 Show</span>
+</div>
+
+<div id="strength" class="strength"></div>
+
+</div>
+
+<div class="input-group">
+<label>Contact Number</label>
+<input type="text" id="contact" name="t3" placeholder="Enter phone number" onkeydown="moveNext(event,'email')">
+</div>
+
+<div class="input-group">
+<label>Email ID</label>
+<input type="text" id="email" name="t4" placeholder="Enter email address" onkeydown="moveNext(event,'parentemail')">
+</div>
+
+<div class="input-group">
+<label>Parent/Guardian Email</label>
+<input type="text" id="parentemail" name="t6" placeholder="Enter parent/guardian email (optional)" onkeydown="moveNext(event,'address')">
+</div>
+
+<div class="input-group">
+<label>Address</label>
+<input type="text" id="address" name="t5" placeholder="Enter address" onkeydown="submitForm(event)">
+</div>
+
+<button type="submit" class="signup-btn">Register</button>
+
+<div class="login">
+Already have account? <a href="{% url 'UserLogin' %}">Login here</a>
+</div>
+
+</div>
+</form>
+
+</body>
+</html>

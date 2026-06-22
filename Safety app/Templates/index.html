@@ -1,0 +1,319 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Women Safety Using ML</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+
+<style>
+
+/* GENERAL RESET */
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:'Roboto', sans-serif;
+  scroll-behavior:smooth;
+}
+
+body{
+  background:#f0f2f5;
+  color:#333;
+}
+
+/* HEADER */
+header{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:20px 60px;
+  background:white;
+  box-shadow:0 4px 10px rgba(0,0,0,0.1);
+  position:sticky;
+  top:0;
+  z-index:1000;
+}
+
+.logo{
+  font-size:24px;
+  font-weight:700;
+  color:#ff3d7f;
+}
+
+nav ul{
+  display:flex;
+  list-style:none;
+}
+
+nav ul li{
+  margin-left:25px;
+}
+
+nav ul li a{
+  text-decoration:none;
+  color:#333;
+  font-weight:500;
+  transition:0.3s;
+}
+
+nav ul li a:hover{
+  color:#ff3d7f;
+}
+
+/* HERO SECTION */
+.hero{
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  text-align:center;
+  height:80vh;
+  padding:20px;
+  background:linear-gradient(120deg, #ff9eb3, #ff3d7f);
+  color:white;
+  border-bottom-left-radius:50px;
+  border-bottom-right-radius:50px;
+}
+
+.hero h1{
+  font-size:42px;
+  margin-bottom:20px;
+}
+
+.hero p{
+  font-size:20px;
+  max-width:600px;
+  margin:auto;
+  line-height:1.5;
+}
+
+.btn{
+  padding:14px 36px;
+  border-radius:30px;
+  text-decoration:none;
+  margin:10px;
+  display:inline-block;
+  font-weight:600;
+  transition:0.3s;
+}
+
+.login{
+  background:white;
+  color:#ff3d7f;
+}
+
+.signup{
+  background:#ff3d7f;
+  color:white;
+}
+
+.btn:hover{
+  opacity:0.85;
+  transform:scale(1.05);
+}
+
+/* FEATURES SECTION */
+.features{
+  padding:80px 40px;
+  text-align:center;
+}
+
+.features h2{
+  font-size:32px;
+  margin-bottom:50px;
+}
+
+.feature-grid{
+  display:flex;
+  flex-wrap:wrap;
+  justify-content:center;
+  gap:30px;
+}
+
+.feature{
+  background:white;
+  padding:30px;
+  width:260px;
+  border-radius:20px;
+  box-shadow:0 10px 25px rgba(0,0,0,0.1);
+  transition:0.3s;
+}
+
+.feature:hover{
+  transform:translateY(-8px);
+}
+
+.feature h3{
+  margin-bottom:15px;
+  color:#ff3d7f;
+}
+
+.feature p{
+  font-size:14px;
+  line-height:1.5;
+}
+
+/* ABOUT SECTION */
+.about{
+  padding:80px 40px;
+  text-align:center;
+  background:white;
+}
+
+.about h2{
+  font-size:32px;
+  margin-bottom:20px;
+  color:#ff3d7f;
+}
+
+.about p{
+  max-width:800px;
+  margin:15px auto;
+  font-size:16px;
+  line-height:1.7;
+}
+
+/* CTA SECTION */
+.cta{
+  padding:80px 40px;
+  text-align:center;
+  background:#ff3d7f;
+  color:white;
+}
+
+.cta a{
+  background:white;
+  color:#ff3d7f;
+  padding:16px 40px;
+  border-radius:40px;
+  text-decoration:none;
+  font-weight:700;
+  transition:0.3s;
+}
+
+.cta a:hover{
+  opacity:0.9;
+  transform:scale(1.05);
+}
+
+/* FOOTER */
+footer{
+  padding:20px;
+  text-align:center;
+  background:#222;
+  color:white;
+  font-size:14px;
+}
+
+/* RESPONSIVE */
+@media(max-width:768px){
+  header{
+    flex-direction:column;
+    gap:10px;
+  }
+  .hero h1{
+    font-size:30px;
+  }
+  .hero p{
+    font-size:16px;
+  }
+  .feature-grid{
+    flex-direction:column;
+    align-items:center;
+  }
+}
+
+</style>
+</head>
+
+<body>
+
+<header>
+  <div class="logo">Women Safety Using ML</div>
+  <nav>
+    <ul>
+      <li><a href="{% url 'index' %}">Home</a></li>
+      <li><a href="{% url 'UserLogin' %}">Login</a></li>
+      <li><a href="{% url 'Register' %}">Signup</a></li>
+    </ul>
+  </nav>
+</header>
+
+<section class="hero">
+  <div>
+    <h1>A Data-Driven Framework For Women’s Safety Using Machine Learning Algorithms</h1>
+    <p>Predict crime patterns and improve women's safety using <br>ML-Techniques and real-time alerts.</p>
+    <a href="{% url 'UserLogin' %}" class="btn login">Login</a>
+    <a href="{% url 'Register' %}" class="btn signup">Create Account</a>
+  </div>
+</section>
+
+<section class="features">
+  <h2>System Features</h2>
+  <div class="feature-grid">
+
+    <div class="feature">
+      <h3>User Registration</h3>
+      <p>Secure and easy account creation for users and guardians.</p>
+    </div>
+
+    <div class="feature">
+      <h3>Login Authentication</h3>
+      <p>Fast and safe login system with proper validation.</p>
+    </div>
+
+    <div class="feature">
+      <h3>Crime Prediction</h3>
+      <p>Machine learning algorithms predict potential crime zones.</p>
+    </div>
+
+    <div class="feature">
+      <h3>Panic Alerts</h3>
+      <p>Instant alerts sent to guardians and authorities during emergencies.</p>
+    </div>
+
+  </div>
+</section>
+
+<!-- ABOUT US SECTION -->
+
+<section class="about">
+
+  <h2>About Us</h2>
+
+  <p>
+    Women Safety Using Machine Learning is an intelligent system designed
+    to improve women's security through advanced technology. The platform
+    analyzes historical crime data using machine learning algorithms to
+    identify high-risk locations and predict possible crime patterns.
+  </p>
+
+  <p>
+    Our mission is to empower women by providing a smart safety framework
+    that offers awareness about dangerous areas and allows quick emergency
+    responses. The system helps users stay informed and protected using
+    data-driven insights.
+  </p>
+
+  <p>
+    This project demonstrates how Artificial Intelligence and Machine
+    Learning can be applied to solve real-world social problems and
+    contribute to building a safer society for women.
+  </p>
+
+</section>
+
+<section class="cta">
+  <h2>Start Using AI For Women Safety Today</h2>
+  <br>
+  <a href="{% url 'Register' %}">Create Free Account</a>
+</section>
+
+<footer>
+  © 2026 Women Safety AI System | Machine Learning Project
+</footer>
+
+</body>
+</html>

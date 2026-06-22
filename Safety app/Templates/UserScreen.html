@@ -1,0 +1,63 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Women Safety Dashboard</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Poppins',sans-serif;}
+body{background:linear-gradient(135deg,#ff6a9c,#ff3d7f,#ff8fb1);min-height:100vh;display:flex;flex-direction:column;}
+header{display:flex;justify-content:space-between;align-items:center;padding:18px 60px;background:rgba(0,0,0,0.35);color:white;}
+header h1{font-size:20px;}
+nav ul{display:flex;list-style:none;}
+nav ul li{margin-left:20px;}
+nav ul li a{color:white;text-decoration:none;font-size:14px;padding:6px 10px;border-radius:4px;}
+nav ul li a:hover{background:white;color:#ff3d7f;}
+.container{flex:1;display:flex;justify-content:center;align-items:flex-start;padding:40px;}
+.card{width:900px;background:white;padding:35px;border-radius:12px;box-shadow:0 10px 25px rgba(0,0,0,0.2);}
+.card h2{text-align:center;margin-bottom:20px;color:#ff3d7f;}
+.result{text-align:center;margin-bottom:20px;color:black;}
+.graph{text-align:center;}
+.graph img{max-width:100%;border-radius:8px;box-shadow:0 5px 15px rgba(0,0,0,0.2);}
+@media(max-width:900px){header{flex-direction:column;gap:10px;}nav ul{flex-wrap:wrap;justify-content:center;}.card{width:100%;}}
+</style>
+
+</head>
+<body>
+
+<header>
+<h1>Women Safety ML</h1>
+<nav>
+<ul>
+    <li><a href="{% url 'TrainML' %}">Train Neural Network</a></li>
+    <li><a href="{% url 'Route' %}">Safe Routing</a></li>
+    <li><a href="{% url 'CrimePredict' %}">Crime Prediction</a></li>
+    <li><a href="{% url 'Panic' %}">Panic Alert</a></li>
+    <li><a href="{% url 'Heatmap' %}">Heatmap</a></li>
+    <li><a href="{% url 'index' %}">Logout</a></li>
+</ul>
+</nav>
+</header>
+
+<div class="container">
+<div class="card">
+<h2>Machine Learning Result</h2>
+{% if data %}
+<div class="result">{{ data|safe }}</div>
+{% else %}
+<div class="result">No results to display.</div>
+{% endif %}
+
+{% if img %}
+<div class="graph">
+<img src="data:image/png;base64,{{ img }}" alt="ML Graph">
+</div>
+{% endif %}
+</div>
+</div>
+
+</body>
+</html>

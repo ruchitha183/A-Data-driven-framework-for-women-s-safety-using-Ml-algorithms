@@ -1,0 +1,114 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Crime Prediction | Women Safety AI</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<script>
+function validate(formObj) {
+    let year = formObj.year.value.trim();
+    if (year === "" || isNaN(year) || Number(year) < 2000) {
+        alert("Please enter a valid year (e.g. 2010+)");
+        return false;
+    }
+    return true;
+}
+</script>
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Poppins',sans-serif;}
+body{display:flex;min-height:100vh;background:#f4f6fb;}
+.sidebar{width:240px;background:linear-gradient(180deg,#ff6a9c,#ff3d7f);color:white;padding-top:30px;position:fixed;height:100%;}
+.sidebar h2{text-align:center;margin-bottom:30px;}
+.sidebar ul{list-style:none;}
+.sidebar ul li{padding:15px 25px;}
+.sidebar ul li a{color:white;text-decoration:none;display:block;border-radius:6px;}
+.sidebar ul li a:hover{background:rgba(255,255,255,0.25);}
+.main{margin-left:240px;flex:1;}
+.header{background:white;padding:18px 30px;box-shadow:0 3px 10px rgba(0,0,0,0.1);}
+.header h1{color:#ff3d7f;font-size:20px;}
+.container{padding:40px;display:flex;justify-content:center;}
+.card{width:600px;background:white;padding:35px;border-radius:12px;box-shadow:0 10px 25px rgba(0,0,0,0.15);}
+.card h2{text-align:center;margin-bottom:25px;color:#ff3d7f;}
+.message{text-align:center;margin-bottom:20px;font-size:16px;font-weight:500;}
+.success{color:green;}
+.error{color:red;}
+form{text-align:center;}
+form select, form input{width:90%;max-width:500px;padding:12px;margin-bottom:16px;border-radius:6px;border:1px solid #ccc;}
+.submit-btn{width:60%;padding:12px;background:#ff3d7f;border:none;color:white;font-size:16px;border-radius:6px;cursor:pointer;}
+.submit-btn:hover{background:#e0316c;}
+.graph{text-align:center;margin-top:20px;}
+.graph img{max-width:100%;border-radius:8px;}
+.info-box{background:#fff4f8;border-left:5px solid #ff3d7f;padding:15px;margin-bottom:20px;border-radius:8px;font-size:14px;}
+@media(max-width:900px){.main{margin-left:0;}.sidebar{position:relative;width:100%;height:auto;}body{flex-direction:column;}}
+</style>
+
+</head>
+<body>
+
+<div class="sidebar">
+<h2>Women Safety AI</h2>
+<ul>
+<li><a href="{% url 'TrainML' %}">Model Evaluation</a></li>
+<li><a href="{% url 'Route' %}">Safe Routing</a></li>
+<li><a href="{% url 'CrimePredict' %}">Crime Prediction</a></li>
+<li><a href="{% url 'Panic' %}">Panic Alert</a></li>
+<li><a href="{% url 'Heatmap' %}">Heatmap</a></li>
+<li><a href="{% url 'index' %}">Logout</a></li>
+</ul>
+</div>
+
+<div class="main">
+
+<div class="header">
+<h1>Crime Risk Prediction</h1>
+</div>
+
+<div class="container">
+<div class="card">
+
+<h2>Predict Women Safety Risk Level</h2>
+<div class="info-box">
+<strong>Input Features Used:</strong> State, Year<br>
+<strong>Output:</strong> Predicted Risk Level (Low / Medium / High)
+
+
+</div>
+
+{% if data %}
+<div class="message {% if error %}error{% else %}success{% endif %}">
+{{ data|safe }}
+</div>
+{% endif %}
+
+<form method="post" action="{% url 'CrimePredictAction' %}" onsubmit="return validate(this)">
+{% csrf_token %}
+
+<select name="state" required>
+<option value="">Select State</option>
+{% for s in states %}
+<option value="{{ s }}" {% if selected_state == s %}selected{% endif %}>{{ s }}</option>
+{% endfor %}
+</select>
+
+<input type="number" name="year" placeholder="Enter Year (e.g. 2020)" value="{{ year|default:'' }}" required>
+
+<button type="submit" class="submit-btn">Predict Risk Level</button>
+
+</form>
+
+{% if img %}
+<div class="graph">
+<img src="data:image/png;base64,{{ img }}" alt="Prediction Graph">
+</div>
+{% endif %}
+
+</div>
+</div>
+
+</div>
+</body>
+</html>

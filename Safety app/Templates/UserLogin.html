@@ -1,0 +1,266 @@
+{% load static %}
+
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+
+<meta charset="utf-8">
+<title>User Login | Women Safety AI</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<script>
+function validate(formObj)
+{
+if(formObj.t1.value.length==0)
+{
+alert("Please Enter Username");
+formObj.t1.focus();
+return false;
+}
+
+if(formObj.t2.value.length==0)
+{
+alert("Please Enter Password");
+formObj.t2.focus();
+return false;
+}
+
+return true;
+}
+
+/* ENTER KEY NAVIGATION */
+function moveNext(event,nextField){
+if(event.key === "Enter"){
+event.preventDefault();
+document.getElementById(nextField).focus();
+}
+}
+
+function submitForm(event){
+if(event.key === "Enter"){
+event.preventDefault();
+document.f1.submit();
+}
+}
+
+/* SHOW / HIDE PASSWORD */
+
+function togglePassword(){
+
+let passField = document.getElementById("password");
+let toggleBtn = document.getElementById("togglePass");
+
+if(passField.type === "password"){
+passField.type = "text";
+toggleBtn.innerHTML = "🙈 Hide";
+}else{
+passField.type = "password";
+toggleBtn.innerHTML = "👁 Show";
+}
+
+}
+</script>
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Poppins',sans-serif;
+}
+
+body{
+height:100vh;
+background:linear-gradient(135deg,#ff6a9c,#ff3d7f,#ff8fb1);
+display:flex;
+flex-direction:column;
+}
+
+header{
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:18px 60px;
+background:rgba(0,0,0,0.3);
+color:white;
+}
+
+header h1{
+font-size:20px;
+}
+
+nav a{
+color:white;
+text-decoration:none;
+margin-left:25px;
+font-size:15px;
+}
+
+nav a:hover{
+text-decoration:underline;
+}
+
+.container{
+flex:1;
+display:flex;
+justify-content:center;
+align-items:center;
+}
+
+.login-card{
+width:380px;
+background:white;
+padding:40px;
+border-radius:12px;
+box-shadow:0 10px 25px rgba(0,0,0,0.2);
+text-align:center;
+}
+
+.login-card h2{
+margin-bottom:20px;
+color:#ff3d7f;
+}
+
+.input-group{
+margin-bottom:18px;
+text-align:left;
+}
+
+.input-group label{
+font-size:14px;
+}
+
+.input-group input{
+width:100%;
+padding:10px;
+margin-top:5px;
+border-radius:6px;
+border:1px solid #ccc;
+outline:none;
+}
+
+/* PASSWORD BOX */
+
+.password-box{
+position:relative;
+}
+
+.toggle{
+position:absolute;
+right:10px;
+top:50%;
+transform:translateY(-50%);
+cursor:pointer;
+font-size:13px;
+color:#555;
+}
+
+.login-btn{
+width:100%;
+padding:12px;
+background:#ff3d7f;
+border:none;
+color:white;
+font-size:16px;
+border-radius:6px;
+cursor:pointer;
+}
+
+.login-btn:hover{
+background:#e0316c;
+}
+
+.message{
+color:blue;
+margin-bottom:10px;
+}
+
+.signup{
+margin-top:15px;
+font-size:14px;
+}
+
+.signup a{
+color:#ff3d7f;
+text-decoration:none;
+font-weight:500;
+}
+
+@media(max-width:500px){
+
+.login-card{
+width:90%;
+}
+
+header{
+flex-direction:column;
+gap:10px;
+}
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<header>
+
+<h1>Women Safety AI System</h1>
+
+<nav>
+<a href="{% url 'index' %}">Home</a>
+<a href="{% url 'UserLogin' %}">Login</a>
+<a href="{% url 'Register' %}">Signup</a>
+</nav>
+
+</header>
+
+<div class="container">
+
+<form name="f1" method="post" action="{% url 'UserLoginAction' %}" onsubmit="return validate(this)">
+
+{% csrf_token %}
+
+<div class="login-card">
+
+<h2>User Login</h2>
+
+<div class="message">
+{{ data|safe }}
+</div>
+
+<div class="input-group">
+<label>Username</label>
+<input type="text" id="username" name="t1" placeholder="Enter username" autofocus onkeydown="moveNext(event,'password')">
+</div>
+
+<div class="input-group">
+<label>Password</label>
+
+<div class="password-box">
+<input type="password" id="password" name="t2" placeholder="Enter password" onkeydown="submitForm(event)">
+<span class="toggle" id="togglePass" onclick="togglePassword()">👁 Show</span>
+</div>
+
+</div>
+
+<button type="submit" class="login-btn">Login</button>
+
+<div class="signup">
+New user? <a href="{% url 'Register' %}">Create account</a>
+</div>
+
+</div>
+
+</form>
+
+</div>
+
+</body>
+</html>
