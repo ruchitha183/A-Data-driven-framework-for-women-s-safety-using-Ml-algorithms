@@ -1,20 +1,32 @@
+# Python
 __pycache__/
 *.pyc
 *.pyo
 
+# Virtual Environments
 venv/
 env/
 .venv/
 
-db.sqlite3
-
-.idea/
+# IDE Files
 .vscode/
+.idea/
 
-media/
-staticfiles/
-
+# Logs
 *.log
 
+# Environment Variables
+.env
+
+# Machine Learning Models
+*.pkl
+*.joblib
+*.h5
+
+# Generated Results
+confusion_matrices/
+model_results.csv
+
+# Operating System Files
 .DS_Store
-Thumbs.db
+Safety.db
