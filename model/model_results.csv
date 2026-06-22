@@ -1,0 +1,6 @@
+Model,Accuracy,Precision,Recall,F1_Score
+RandomForest,0.9527,0.9544,0.9527,0.9527
+GradientBoost,0.9527,0.9544,0.9527,0.9527
+KNN,0.9459,0.9476,0.9459,0.946
+DecisionTree,0.9459,0.946,0.9459,0.9455
+LogisticRegression,0.8311,0.8463,0.8311,0.8287
