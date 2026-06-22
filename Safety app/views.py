@@ -73,7 +73,7 @@ def get_db_connection():
     return pymysql.connect(
         host='127.0.0.1',
         user='root',
-        password='Lucky@181',
+        password='******',
         database='safety',
         charset='utf8'
     )
@@ -344,8 +344,8 @@ The user needs immediate help.
 Live Location:
 {location}
 """
-            email_address='batchproject244@gmail.com'
-            email_password='hekqhifbbomjzqmj'
+            email_address='emailaddress@gmail.com'
+            email_password='***********'
             msg = MIMEText(message,'plain','utf-8')
             msg['Subject']=subject
             msg['From']=email_address
