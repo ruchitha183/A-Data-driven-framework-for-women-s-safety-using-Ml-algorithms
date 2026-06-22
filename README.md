@@ -153,11 +153,11 @@ http://127.0.0.1:8000/
 
 ### Home Page
 
-(Add Screenshot Here)
+![Home Page](screenshots/home.png)
 
 ### Login Page
 
-(Add Screenshot Here)
+![Login Page](screenshots/login.png)
 
 ### Prediction Page
 
