@@ -63,6 +63,7 @@ The system combines machine learning techniques with a Django-based web applicat
 
 * Anaconda Navigator
 * Visual Studio Code
+* Github
 
 ---
 
@@ -211,8 +212,6 @@ This project was developed as a Final Year Major Project for the Bachelor of Tec
 ---
 
 ## Author
-
-Ruchitha
 
 Bachelor of Technology (B.Tech)
 
