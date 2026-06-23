@@ -161,11 +161,11 @@ http://127.0.0.1:8000/
 
 ### Prediction Page
 
-(Add Screenshot Here)
+![Login Page](screenshots/prediction.png)
 
-### Analysis Results
+### Running server
 
-(Add Screenshot Here)
+![Login Page](screenshots/runningserver.png)
 
 ---
 
