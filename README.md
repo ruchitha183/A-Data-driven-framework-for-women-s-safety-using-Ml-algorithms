@@ -49,8 +49,6 @@ The system combines machine learning techniques with a Django-based web applicat
 ### Frontend
 
 * HTML
-* CSS
-* JavaScript
 
 ### Machine Learning Libraries
 
@@ -64,7 +62,6 @@ The system combines machine learning techniques with a Django-based web applicat
 ### Development Tools
 
 * Anaconda Navigator
-* Jupyter Notebook
 * Visual Studio Code
 
 ---
