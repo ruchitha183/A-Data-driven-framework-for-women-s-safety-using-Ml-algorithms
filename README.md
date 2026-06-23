@@ -157,7 +157,7 @@ http://127.0.0.1:8000/
 
 ### Login Page
 
-![Login Page](screenshots/Login page.png)
+![Login Page](screenshots/Loginpage.png)
 
 ### Prediction Page
 
@@ -165,7 +165,7 @@ http://127.0.0.1:8000/
 
 ### Running server
 
-![execution Page](screenshots/running server.png)
+![execution Page](screenshots/runningserver.png)
 
 ---
 
