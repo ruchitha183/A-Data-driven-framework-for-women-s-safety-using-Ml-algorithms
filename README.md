@@ -153,7 +153,7 @@ http://127.0.0.1:8000/
 
 ### Home Page
 
-![Home Page](screenshots/home.png)
+![Home Page](screenshots/login.png)
 
 ### Login Page
 
@@ -161,11 +161,11 @@ http://127.0.0.1:8000/
 
 ### Prediction Page
 
-![Login Page](screenshots/prediction.png)
+![prediction Page](screenshots/prediction.png)
 
 ### Running server
 
-![Login Page](screenshots/runningserver.png)
+![execution Page](screenshots/runningserver.png)
 
 ---
 
